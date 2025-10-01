@@ -46,11 +46,48 @@ void displayOptions()
     addFront()
     Add a MovieReview node to the front of the Linked list
     Arguments:
-        - head: a MovieReview node (the head of the Linked list)
+        - head: the reference to a MovieReview node (the head of the Linked list)
         - newNode: a MovieReview node to add to the front
     Return: none
 */
-void addFront(MovieReview* head, MovieReview* newNode)
+void addFront(MovieReview*& head, MovieReview* newNode)
 {
-    
+    // Let newNode points to the current head
+    newNode->next = head;
+
+    // Update the new head of the Linked list
+    head = newNode;
+}
+
+/*
+    addTail()
+    Add a MovieReview node to the tail of the Linked list
+    Arguments:
+        - head: the reference to a MovieReview node (the head of the Linked list)
+        - newNode: a MovieReview node to add to the tail
+    Return: none
+*/
+void addTail(MovieReview*& head, MovieReview* newNode)
+{
+    // Check whether the list is empty
+    if (head == nullptr)
+    {
+        // Let newNode be the head of the Linked list
+        head = newNode;
+
+        return;      // Exit the function
+    }
+
+    // Declare a MovieReview node to traverse
+    MovieReview* current = head;
+
+    // Iterate until we reach the last MovieReview node of the Linked list
+    while (current->next != nullptr)
+    {
+        // Move on to the next MovieReview node
+        current = current->next;
+    }
+
+    // Add newNode to the tail of the Linked list
+    current->next = newNode;
 }
