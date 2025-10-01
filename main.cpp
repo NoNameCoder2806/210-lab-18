@@ -45,6 +45,28 @@ int main()
         cin.ignore(1000, 10);
     }
 
+    // Loop until the user stops inputing the reviews
+    while (true)
+    {
+        // Declare 2 variables to store the rating and comment
+        float rating = 0.0;
+        string comment = "";
+
+        // Prompt the user to enter the rating
+        cout << "Enter review rating (0-5): ";
+        cin >> rating;
+
+        // Check whether the entered rating is valid
+        while (rating < MIN_RATING || rating > || MAX_RATING)
+        {
+            // Display an error message
+            cout << " --- Invalid rating! Rating must be between 0 and 5! --- " << endl;
+
+            // Prompt the user to enter a new rating
+            
+        }
+    }
+
     return 0;
 }
 
