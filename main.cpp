@@ -11,9 +11,13 @@ const float MIN_RATING = 0.0;
 const float MAX_RATING = 5.0;
 
 // Function prototypes
-void displayMenu();                        // Display the menu of operations
+void displayOptions();                                       // Display all the of operations
 
-void outputList(MovieReview* head);        // Display all the MovieReview nodes
+void addFront(MovieReview* head, MovieReview* newNode);      // Add a MovieReview node to the front
+
+void addTail(MovieReview* head, MovieReview* newNode);       // Add a MovieReview node to the tail
+
+void outputList(MovieReview* head);                          // Display all the MovieReview nodes
 
 // Main function
 int main()
@@ -25,21 +29,28 @@ int main()
 
 // Function implementations
 /*
-    displayMenu()
-    Display the menu of operations the user can implement on the Linked list
+    displayOptions()
+    Display the operations the user can implement on the Linked list
     Arguments: none
     Return: none
 */
-void displayMenu()
+void displayOptions()
 {
-    // Display the whole menu
-    cout << " --- Linked list operations menu --- " << endl;
-    cout << "1. Add a Node to the front" << endl;
-    cout << "2. Add a Node to the tail" << endl;
-    cout << "3. Insert a Node at a position" << endl;
-    cout << "4. Delete a Node at a position" << endl;
-    cout << "5. Delete the entire Linked list" << endl;
-    cout << "6. Display the Linked list" << endl;
-    cout << "7. Exit the program" << endl;
-    cout << " ----------------------------------- " << endl;
+    // Display the options
+    cout << "Which Linked list method should we use?" << endl;
+    cout << "   [1] New nodes are added at the head of the linked list" << endl;
+    cout << "   [2] New nodes are added at the tail of the linked list" << endl;
+}
+
+/*
+    addFront()
+    Add a MovieReview node to the front of the Linked list
+    Arguments:
+        - head: a MovieReview node (the head of the Linked list)
+        - newNode: a MovieReview node to add to the front
+    Return: none
+*/
+void addFront(MovieReview* head, MovieReview* newNode)
+{
+    
 }
