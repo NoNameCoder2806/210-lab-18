@@ -22,6 +22,9 @@ void displayList(MovieReview* head);                          // Display all the
 // Main function
 int main()
 {
+    // Declare a new Linked list
+    MovieReview* head = nullptr;
+
     // Display the options for the user
     displayOptions();
 
@@ -52,19 +55,53 @@ int main()
         float rating = 0.0;
         string comment = "";
 
-        // Prompt the user to enter the rating
+        // Prompt the user to enter a rating
         cout << "Enter review rating (0-5): ";
         cin >> rating;
+        cin.ignore(1000, 10);
 
         // Check whether the entered rating is valid
-        while (rating < MIN_RATING || rating > || MAX_RATING)
+        while (rating < MIN_RATING || rating > MAX_RATING)
         {
             // Display an error message
             cout << " --- Invalid rating! Rating must be between 0 and 5! --- " << endl;
 
             // Prompt the user to enter a new rating
-            
+            cout << "Please enter a valid rating (0-5): ";
+            cin >> rating;
+            cin.ignore(1000, 10);
         }
+
+        // Prompt the user to enter a comment
+        cout << "Enter review comment: ";
+        getline(cin, comment);
+
+        // Check whether the comment was empty
+        if (comment.length() == 0)
+        {
+            // let comment be "(no comment)"
+            comment = "(no comment)";
+        }
+
+        // Declare a new MovieReview node
+        MovieReview* node = new MovieReview;
+        node->rating = rating;
+        node->comment = comment;
+
+        // Implement addFront() or addTail() depending on user's choice
+        if (choice == 1)
+        {
+            // Add the node to the front of the Linked list
+            addFront(head, node);
+        }
+        else
+        {
+            // Add the node to the tail of the Linked list
+            addTail(head, node);
+        }
+
+        // Let user choose to continue or stop
+        cout << "";
     }
 
     return 0;
