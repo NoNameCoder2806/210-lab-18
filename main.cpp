@@ -17,6 +17,8 @@ void addFront(MovieReview*& head, MovieReview* newNode);      // Add a MovieRevi
 
 void addTail(MovieReview*& head, MovieReview* newNode);       // Add a MovieReview node to the tail
 
+void deleteList(MovieReview*& head);                          // Delete all the MovieReview nodes
+
 void displayList(MovieReview* head);                          // Display all the MovieReview nodes
 
 // Main function
@@ -100,8 +102,37 @@ int main()
             addTail(head, node);
         }
 
+        // Declare a char variable to store user's choice
+        char c;
+
         // Let user choose to continue or stop
-        cout << "";
+        cout << "Enter another review? Y/N: ";
+        cin >> c;
+        cin.ignore(1000, 10);
+
+        // Check whether the choice is valid
+        while (toupper(c) != 'Y' && toupper(c) != 'N')
+        {
+            // Display an error message
+            cout << " --- Invalid choice! Please enter 'Y' or 'N'! --- " << endl;
+
+            // Prompt the user to enter a new choice
+            cout << "Do you want to enter another review? Y/N: ";
+            cin >> c;
+            cin.ignore(1000, 10);
+        }
+
+        // Check if the user want to exit the program
+        if (toupper(c) == 'N')
+        {
+            // Display all the reviews
+            cout << "Outputting all the reviews: " << endl;
+
+            // Call the displayList() function
+            displayList(head);
+
+            break;
+        }
     }
 
     return 0;
@@ -170,6 +201,18 @@ void addTail(MovieReview*& head, MovieReview* newNode)
 
     // Add newNode to the tail of the Linked list
     current->next = newNode;
+}
+
+/*
+    deleteList()
+    Delete all MovieReview nodes in the Linked list
+    Arguments:
+        - head: a reference to the pointer to the head MovieReview node of the linked list
+    Return: none
+*/
+void deleteList(MovieReview*& head)
+{
+    
 }
 
 /*
