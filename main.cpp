@@ -22,7 +22,22 @@ void displayList(MovieReview* head);                          // Display all the
 // Main function
 int main()
 {
-    cout << "Hello World" << endl;
+    // Display the options for the user
+    displayOptions();
+
+    // Declare a char variable to store the user's choice
+    int choice;
+
+    // Prompt the user to enter thetheir choice
+    cout << "   Choice: ";
+    cin >> choice;
+    cin.ignore(1000, 10);
+
+    // Check whether the entered choice is valid
+    while (choice != 1 && choice != 2)
+    {
+        cout << "Invalid choice! ";
+    }
 
     return 0;
 }
@@ -113,10 +128,24 @@ void displayList(MovieReview* head)
     // Declare a new MovieReview node to traverse
     MovieReview* current = head;
 
+    // Declare some variables
+    int count = 0;        // An integer counter for the number of nodes
+    float sum = 0.0;      // A float variable for the sum of the ratings
+
     // Iterate through the Linked list until we reach the final node
     while (current)
     {
         // Display the rating and the comment
-        cout << ""
+        cout << "   > Review #" << count + 1 << ": " << current->rating << ": " << current->comment << endl;
+
+        // Update the variables
+        count++;                     // Increment the count
+        sum += current->rating;      // Update the sum
+
+        // Move on to the next node
+        current = current->next;
     }
+
+    // Display the average rating
+    cout << "   > Average: " << sum / (float) count << endl;
 }
