@@ -13,7 +13,7 @@ const float MAX_RATING = 5.0;
 // Function prototypes
 void displayOptions();                                        // Display all the of operations
 
-void addFront(MovieReview*& head, MovieReview* newNode);      // Add a MovieReview node to the front
+void addHead(MovieReview*& head, MovieReview* newNode);       // Add a MovieReview node to the head
 
 void addTail(MovieReview*& head, MovieReview* newNode);       // Add a MovieReview node to the tail
 
@@ -89,12 +89,13 @@ int main()
         MovieReview* node = new MovieReview;
         node->rating = rating;
         node->comment = comment;
+        node->next = nullptr;
 
-        // Implement addFront() or addTail() depending on user's choice
+        // Implement addHead() or addTail() depending on user's choice
         if (choice == 1)
         {
-            // Add the node to the front of the Linked list
-            addFront(head, node);
+            // Add the node to the head of the Linked list
+            addHead(head, node);
         }
         else
         {
@@ -131,6 +132,9 @@ int main()
             // Call the displayList() function
             displayList(head);
 
+            // Clean up the memory: deleting all the nodes in the Linked list
+            deleteList(head);
+
             break;
         }
     }
@@ -154,14 +158,14 @@ void displayOptions()
 }
 
 /*
-    addFront()
-    Add a MovieReview node to the front of the Linked list
+    addHead()
+    Add a MovieReview node to the head of the Linked list
     Arguments:
         - head: a reference to the pointer to the head MovieReview node of the linked list
         - newNode: a pointer to the MovieReview node to add
     Return: none
 */
-void addFront(MovieReview*& head, MovieReview* newNode)
+void addHead(MovieReview*& head, MovieReview* newNode)
 {
     // Let newNode points to the current head
     newNode->next = head;
@@ -212,7 +216,18 @@ void addTail(MovieReview*& head, MovieReview* newNode)
 */
 void deleteList(MovieReview*& head)
 {
-    
+    // Traverse through the Linked list
+    while (head)
+    {
+        // Declare a new MovieReview node and let it be the head
+        MovieReview* current = head;
+
+        // Move on to the next MovieReview node
+        head = head->next;
+
+        // Delete the current MovieReview node
+        delete current;
+    }
 }
 
 /*
