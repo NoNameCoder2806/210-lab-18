@@ -36,7 +36,13 @@ int main()
     // Check whether the entered choice is valid
     while (choice != 1 && choice != 2)
     {
-        cout << "Invalid choice! ";
+        // Display an error message
+        cout << " --- Invalid choice! Please choose 1 or 2! --- ";
+
+        // Prompt the user to enter a new choice
+        cout << "   Enter your new choice: ";
+        cin >> choice;
+        cin.ignore(1000, 10);
     }
 
     return 0;
