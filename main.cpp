@@ -11,13 +11,13 @@ const float MIN_RATING = 0.0;
 const float MAX_RATING = 5.0;
 
 // Function prototypes
-void displayOptions();                                       // Display all the of operations
+void displayOptions();                                        // Display all the of operations
 
-void addFront(MovieReview* head, MovieReview* newNode);      // Add a MovieReview node to the front
+void addFront(MovieReview*& head, MovieReview* newNode);      // Add a MovieReview node to the front
 
-void addTail(MovieReview* head, MovieReview* newNode);       // Add a MovieReview node to the tail
+void addTail(MovieReview*& head, MovieReview* newNode);       // Add a MovieReview node to the tail
 
-void outputList(MovieReview* head);                          // Display all the MovieReview nodes
+void displayList(MovieReview* head);                          // Display all the MovieReview nodes
 
 // Main function
 int main()
@@ -46,8 +46,8 @@ void displayOptions()
     addFront()
     Add a MovieReview node to the front of the Linked list
     Arguments:
-        - head: the reference to a MovieReview node (the head of the Linked list)
-        - newNode: a MovieReview node to add to the front
+        - head: a reference to the pointer to the head MovieReview node of the linked list
+        - newNode: a pointer to the MovieReview node to add
     Return: none
 */
 void addFront(MovieReview*& head, MovieReview* newNode)
@@ -63,8 +63,8 @@ void addFront(MovieReview*& head, MovieReview* newNode)
     addTail()
     Add a MovieReview node to the tail of the Linked list
     Arguments:
-        - head: the reference to a MovieReview node (the head of the Linked list)
-        - newNode: a MovieReview node to add to the tail
+        - head: a reference to the pointer to the head MovieReview node of the linked list
+        - newNode: a pointer to the MovieReview node to add
     Return: none
 */
 void addTail(MovieReview*& head, MovieReview* newNode)
@@ -90,4 +90,33 @@ void addTail(MovieReview*& head, MovieReview* newNode)
 
     // Add newNode to the tail of the Linked list
     current->next = newNode;
+}
+
+/*
+    displayList()
+    Display all the MovieReview nodes of the Linked list and the average rating
+    Arguments:
+        - head: a pointer to the head MovieReview node of the linked list
+    Return: none
+*/
+void displayList(MovieReview* head)
+{
+    // Check whether the list is empty
+    if (head == nullptr)
+    {
+        // Display an error message
+        cout << "There are no reviews in the Linked list!" << endl;
+
+        return;      // Exit the function
+    }
+
+    // Declare a new MovieReview node to traverse
+    MovieReview* current = head;
+
+    // Iterate through the Linked list until we reach the final node
+    while (current)
+    {
+        // Display the rating and the comment
+        cout << ""
+    }
 }
