@@ -7,9 +7,13 @@
 using namespace std;
 
 // Constants
+const float MIN_RATING = 0.0;
+const float MAX_RATING = 5.0;
 
 // Function prototypes
-void displayMenu();                                    // Display the menu of operations
+void displayMenu();                        // Display the menu of operations
+
+void outputList(MovieReview* head);        // Display all the MovieReview nodes
 
 // Main function
 int main()
